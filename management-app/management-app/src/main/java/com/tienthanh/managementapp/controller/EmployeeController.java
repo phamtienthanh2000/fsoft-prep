@@ -3,10 +3,8 @@ package com.tienthanh.managementapp.controller;
 import com.tienthanh.managementapp.entity.Employee;
 import com.tienthanh.managementapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +19,24 @@ public class EmployeeController {
     public List<Employee> getAllEmployee(){
         return employeeService.findAll();
     }
+
+    @GetMapping("/{id}")
+    public Employee getByEmployeeId(@PathVariable(name = "id") int id){
+        return employeeService.findById(id);
+    }
+
+    @PostMapping("")
+    public Employee createEmployee(Employee employee){
+        return null;
+    }
+
+    @GetMapping("/per-page")
+    public Page<Employee> getEmployeeOfPage(@RequestParam  int employeePerPage , @RequestParam int pageNumber ){
+
+        return employeeService.getEmployeeForPage(employeePerPage,pageNumber);
+    }
+
+
+
+
 }
