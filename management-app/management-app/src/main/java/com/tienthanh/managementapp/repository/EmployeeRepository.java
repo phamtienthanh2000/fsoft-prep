@@ -29,7 +29,6 @@ public class EmployeeRepository  {
     // get employee by id
 
     // save Employee
-    ndjwqnjdqkwk
     // find by lastName
 
     public List<EmployeeDTO> findByLastName(String lastName){
@@ -48,12 +47,13 @@ public class EmployeeRepository  {
         Query query = entityManager.createQuery("Select e From Employee e Where e.firstName like :expression ");
         query.setParameter("expression","%"+expression+"%");
         List<Employee> result = query.getResultList();
-        System.out.println("result "+result);
+
         return result;
     }
 
     public Employee findById(Integer id){
         Query query =endưnqjdnwkqndw
+        // thanh pt code
 
         Employee employee = (Employee) query.getSingleResult();
         return employee;
@@ -61,6 +61,7 @@ public class EmployeeRepository  {
 
     public List<Employee> findEmployeeWithSalarySql(){
         Query query  = entityManager.createNativeQuery("Select * From employee e Inner Join salaries s On e.emp_no = s.emp_no");
+        // thanh pt code
         List<Employee> result =  query.getResultList();
         return result;
     }
@@ -69,6 +70,8 @@ public class EmployeeRepository  {
         Query query  = entityManager.createQuery("Select e From Employee e Where e.salaries is not empty");
         List<Employee> result = query.getResultList();
         System.out.println("result "+result);
+        // thanh pt code
+
         return null;
     }
 
