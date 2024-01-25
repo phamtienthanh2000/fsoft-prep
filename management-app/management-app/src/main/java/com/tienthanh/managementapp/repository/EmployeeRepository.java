@@ -32,15 +32,14 @@ public class EmployeeRepository  {
     // find by lastName
 
     public List<EmployeeDTO> findByLastName(String lastName){
-        return null;
+        // Quan code 1 
     };
 
     public List<Employee> findByLastNameJpql(String lastName){
-        System.out.println("call repository" );
-        Query query = entityManager.createQuery("Select e From Employee e Where e.lastName = :lastName");
-        query.setParameter("lastName",lastName);
-        List<Employee>employees= query.getResultList();
-        return employees;
+       /**
+        * 
+            Quan code 2
+        */ 
     }
 
     public List<Employee> findByFirstnameLike(String expression){
@@ -73,10 +72,13 @@ public class EmployeeRepository  {
         // thanh pt code
 
         return null;
+
+      
+    }
     }
 
 
 
 
 
-}
+
