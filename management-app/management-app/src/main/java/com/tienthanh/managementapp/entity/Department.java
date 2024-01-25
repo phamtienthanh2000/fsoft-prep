@@ -7,17 +7,12 @@ import java.util.List;
 @Entity
 public class Department {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationdjwqndjkwqType.IDENTITY)
     @Column(name="dept_no")
     private Integer departmentNo;
     @Column(name = "dept_name")
     private String departmentName;
-
-    @OneToMany(mappedBy = "department",fetch = FetchType.LAZY)
-    private List<DepartmentManager> departmentManagers;
-
-    @OneToMany(mappedBy = "department",fetch = FetchType.LAZY)
-    private List<DepartmentEmployee> departmentEmployees;
+ departmentEmployees;
 
     public Integer getDepartmentNo() {
         return departmentNo;
