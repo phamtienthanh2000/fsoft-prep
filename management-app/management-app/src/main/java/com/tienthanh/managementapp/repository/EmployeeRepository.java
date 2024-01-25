@@ -33,43 +33,41 @@ public class EmployeeRepository  {
     // find by lastName
 
     public List<EmployeeDTO> findByLastName(String lastName){
-        return null;
+        // Quan code 1 
     };
 
     public List<Employee> findByLastNameJpql(String lastName){
-        System.out.println("call repository" );
-        Query query = entityManager.createQuery("Select e From Employee e Where e.lastName = :lastName");
-        query.setParameter("lastName",lastName);
-        List<Employee>employees= query.getResultList();
-        return employees;
+       /**
+        * 
+            Quan code 2
+        */ 
     }
 
     public List<Employee> findByFirstnameLike(String expression){
-        Query query = entityManager.createQuery("Select e From Employee e Where e.firstName like :expression ");
-        query.setParameter("expression","%"+expression+"%");
-        List<Employee> result = query.getResultList();
-        System.out.println("result "+result);
-        return result;
+       /**
+        * 
+
+            Quan Code 3        
+        */
     }
 
     public Employee findById(Integer id){
-        Query query =endưnqjdnwkqndw
-
-        Employee employee = (Employee) query.getSingleResult();
-        return employee;
+     // Quan code 4
     }
 
     public List<Employee> findEmployeeWithSalarySql(){
-        Query query  = entityManager.createNativeQuery("Select * From employee e Inner Join salaries s On e.emp_no = s.emp_no");
-        List<Employee> result =  query.getResultList();
-        return result;
+        //Hello From Quan machines 
     }
 
     public List<Employee> findEmployeeWithSalaryConditionJpql(){
-        Query query  = entityManager.createQuery("Select e From Employee e Where e.salaries is not empty");
-        List<Employee> result = query.getResultList();
-        System.out.println("result "+result);
-        return null;
+        Query q = new Query() {
+            
+        };
+
+        hádhasdk
+        alksdjalsjdasd
+        ạdslkajdlksad
+
     }
 
 
