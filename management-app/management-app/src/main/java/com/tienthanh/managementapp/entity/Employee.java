@@ -2,12 +2,14 @@ package com.tienthanh.managementapp.entity;
 
 import com.tienthanh.managementapp.enums.Gender;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
 import org.springframework.context.annotation.Primary;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "employees")
+@Table
 public class Employee {
 
     @Id
@@ -29,6 +31,18 @@ public class Employee {
 
     @Column(name = "hire_date")
     private LocalDate hireDate;
+
+    @OneToMany(mappedBy = "employee",fetch = FetchType.LAZY)
+    private List<DepartmentManager> departmentManagers;
+
+    @OneToMany(mappedBy = "employee",fetch = FetchType.LAZY)
+    private List<DepartmentEmployee> departmentEmployees;
+
+    @OneToMany(mappedBy = "employee",fetch = FetchType.LAZY)
+    private List<Title> titles;
+
+    @OneToMany(mappedBy = "employee",fetch = FetchType.LAZY)
+    private List<Salary> salaries;
 
     public Integer getEmployeeNo() {
         return employeeNo;
@@ -76,6 +90,14 @@ public class Employee {
 
     public void setHireDate(LocalDate hireDate) {
         this.hireDate = hireDate;
+    }
+
+    public List<Salary> getSalaries() {
+        return salaries;
+    }
+
+    public void setSalaries(List<Salary> salaries) {
+        this.salaries = salaries;
     }
 
     @Override

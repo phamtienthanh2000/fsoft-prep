@@ -1,6 +1,7 @@
 package com.tienthanh.managementapp.service;
 
 import com.tienthanh.managementapp.entity.Employee;
+import com.tienthanh.managementapp.entity.EmployeeDTO;
 import com.tienthanh.managementapp.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
@@ -15,30 +16,34 @@ public class EmployeeService {
     EmployeeRepository employeeRepository;
 
     public List<Employee> findAll(){
-       return employeeRepository.findAll();
+       return null;
     }
 
     public Employee findById(Integer id){
-       return employeeRepository.findById(id).orElse(null);
+       return employeeRepository.findById(id);
     }
 
     public Employee save(Employee employee){
-        return employeeRepository.save(employee);
+        return null;
     }
 
     // mục đích viết 1 câu query lấy tất cả employee của 1 trang,
     public Page<Employee> getEmployeeForPage(int employeePerPage ,int pageNumber){
-        Pageable pageable  = PageRequest.of(pageNumber-1,employeePerPage, Sort.by("firstName").descending());
-        Page<Employee> page =employeeRepository.findAll(pageable);
-        Slice<Employee> employeeSlice =  employeeRepository.findAll(pageable);
-        return page;
+//        Pageable pageable  = PageRequest.of(pageNumber-1,employeePerPage, Sort.by("firstName").descending());
+//        Page<Employee> page =employeeRepository.findAll(pageable);
+//        Slice<Employee> employeeSlice =  employeeRepository.findAll(pageable);
+        return null;
     }
+    // Viết 1 câu query lấy 100 bản ghi , pagination xem các page
+    // -> limit 100
+//    public Page<Employee> findByLastNameLimitAndPagination(int employeePerPage ,int pageNumber){
+//        Pageable pageable  = PageRequest.of(pageNumber-1,employeePerPage);
+//    }
 
-    public Page<Employee> findByLastNameLimitAndPagination(int employeePerPage ,int pageNumber){
-        Pageable pageable  = PageRequest.of(pageNumber-1,employeePerPage);
-        pageable.toLimit();
+    // findByLastName trả về 1 vài thuộc tính của bảng Employee
 
-
+    public List<EmployeeDTO> findByLastName(String lastName){
+        return employeeRepository.findByLastName(lastName);
     }
 
 
