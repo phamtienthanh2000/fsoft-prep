@@ -12,12 +12,5 @@ public class DepartmentEmployeeRepository {
     @PersistenceContext
     private final EntityManager entityManager;
 
-    public DepartmentEmployeeRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
-    public List<DepartmentEmployee> getAll() {
-//        entityManager.createQuery();
-        return null;
     }
 }

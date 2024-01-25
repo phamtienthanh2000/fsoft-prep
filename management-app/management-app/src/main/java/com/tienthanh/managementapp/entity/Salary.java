@@ -9,11 +9,6 @@ import java.time.LocalDate;
 public class Salary {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "emp_no")
     private Employee employee;
 
     private int salary;
