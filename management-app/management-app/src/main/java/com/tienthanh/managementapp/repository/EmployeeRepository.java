@@ -36,6 +36,22 @@ public class EmployeeRepository  {
         return null;
     };
 
+    public List<Employee> findByLastNameJpql(String lastName){
+        System.out.println("call repository" );
+        Query query = entityManager.createQuery("Select e From Employee e Where e.lastName = :lastName");
+        query.setParameter("lastName",lastName);
+        List<Employee>employees= query.getResultList();
+        return employees;
+    }
+
+    public List<Employee> findByFirstnameLike(String expression){
+        Query query = entityManager.createQuery("Select e From Employee e Where e.firstName like :expression ");
+        query.setParameter("expression","%"+expression+"%");
+        List<Employee> result = query.getResultList();
+        System.out.println("result "+result);
+        return result;
+    }
+
     public Employee findById(Integer id){
         Query query =entityManager.createQuery("Select e From Employee e Where e.id = :id ");
         query.setParameter("id",id);
@@ -48,9 +64,13 @@ public class EmployeeRepository  {
         Query query  = entityManager.createNativeQuery("Select * From employee e Inner Join salaries s On e.emp_no = s.emp_no");
         List<Employee> result =  query.getResultList();
         return result;
+    }
 
-
-
+    public List<Employee> findEmployeeWithSalaryConditionJpql(){
+        Query query  = entityManager.createQuery("Select e From Employee e Where e.salaries is not empty");
+        List<Employee> result = query.getResultList();
+        System.out.println("result "+result);
+        return null;
     }
 
 

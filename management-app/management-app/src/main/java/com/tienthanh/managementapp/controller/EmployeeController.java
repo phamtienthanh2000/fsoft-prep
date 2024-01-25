@@ -61,6 +61,25 @@ public class EmployeeController {
         return employeeJpaRepository.findCustom();
     }
 
+    @GetMapping("/get-by-lastname-jpql")
+    public List<Employee> findByLastName(@RequestParam String lastName){
+        System.out.println("Call controller");
+        repository.findByLastNameJpql(lastName);
+        return null;
+    }
+
+    @GetMapping("/get-by-firstname-like")
+    public List<Employee> findByFirstNameLike(@RequestParam String expression){
+        repository.findByFirstnameLike(expression);
+        return null;
+    }
+
+    @GetMapping("/get-employeeHaveSalary")
+    public List<Employee> findByEmployeeHaveSalary(){
+        repository.findEmployeeWithSalaryConditionJpql();
+        return null;
+    }
+
 
 
 

@@ -27,6 +27,10 @@ public class EmployeeService {
         return null;
     }
 
+    public List<Employee> findByLastNameJpql(String lastName){
+       return employeeRepository.findByLastNameJpql(lastName);
+    }
+
     // mục đích viết 1 câu query lấy tất cả employee của 1 trang,
     public Page<Employee> getEmployeeForPage(int employeePerPage ,int pageNumber){
 //        Pageable pageable  = PageRequest.of(pageNumber-1,employeePerPage, Sort.by("firstName").descending());
