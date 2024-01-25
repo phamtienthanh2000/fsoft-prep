@@ -10,8 +10,7 @@ import java.util.List;
 @Repository
 public interface EmployeeJpaRepository extends JpaRepository<Employee,Integer> {
 
-    @Query(value = "Select *" +
-            " From employee e Inner Join salaries s On e.emp_no = s.emp_no",nativeQuery = true)
+    @Query(value = "Selectdưnqdkjwnoin salaries s On e.emp_no = s.emp_no",nativeQuery = true)
     List<EmployeeWithSalary> findCustom();
 //    `
 

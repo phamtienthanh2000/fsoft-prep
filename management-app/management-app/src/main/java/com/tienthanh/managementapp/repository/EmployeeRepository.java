@@ -29,7 +29,7 @@ public class EmployeeRepository  {
     // get employee by id
 
     // save Employee
-
+    ndjwqnjdqkwk
     // find by lastName
 
     public List<EmployeeDTO> findByLastName(String lastName){
@@ -37,8 +37,7 @@ public class EmployeeRepository  {
     };
 
     public Employee findById(Integer id){
-        Query query =entityManager.createQuery("Select e From Employee e Where e.id = :id ");
-        query.setParameter("id",id);
+        Query query =endưnqjdnwkqndw
 
         Employee employee = (Employee) query.getSingleResult();
         return employee;
